@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Using Gulp.js 4 for CSS tasks</title>
+  <link rel="stylesheet" media="all" href="build/css/main.css">
+</head>
+<body>
+
+  <header>
+
+    <picture>
+      <source srcset="build/images/cave-1800.jpg" media="(min-width:1400px)">
+      <source srcset="build/images/cave-1200.jpg" media="(min-width:800px)">
+      <img src="build/images/cave-0600.jpg">
+    </picture>
+
+    <p><a href="https://unsplash.com/@lanceplaine">photo by Kevin Lanceplaine</a></p>
+
+  </header>
+
+  <main>
+
+    <article>
+
+      <h1>Using Gulp.js 4 for CSS tasks</h1>
+
+      <p><a href="https://gulpjs.com/">Gulp.js</a> is a Node.js task runner which can aid your CSS workflow:</p>
+
+      <ul class="iconlist">
+        <li class="fast">quicker development</li>
+        <li class="reload">instant reloading</li>
+        <li class="alert">fewer code errors</li>
+      </ul>
+
+
+      <h2>Installation</h2>
+
+      <p>To install on any Linux, Mac OS or Windows system, ensure <a href="https://nodejs.org/">Node.js</a> is installed then clone the repository:</p>
+
+      <pre><code>git clone https://github.com/craigbuckler/gulp4-css.git</code></pre>
+
+      <p>Navigate to the folder:</p>
+
+      <pre><code>cd gulp4-css</code></pre>
+
+      <p>Install dependencies:</p>
+
+      <pre><code>npm i gulp-cli -g
+npm i</code></pre>
+
+
+      <h2>Folders</h2>
+
+      <p>A demonstration <code>index.html</code> file is provided in the root folder. Other folders and files:</p>
+
+      <ul class="linklist">
+        <li><code>src</code> source files</li>
+        <li><code>src/images</code> image files</li>
+        <li><code>src/scss</code> Sass partials</li>
+        <li><code>build</code> compiled files (created on first build)</li>
+      </ul>
+
+
+      <h2>Development usage</h2>
+
+      <p>Run in live-reloading development mode:</p>
+
+      <pre><code>gulp</code></pre>
+
+      <p>Navigate to <a href="http://localhost:8000/">http://localhost:8000/</a> or the <strong>External</strong> URL reported if accessing from another device.</p>
+
+
+      <h2>Production build</h2>
+
+      <p><code>gulp clean</code> can be used to delete the <code>build</code> folder if necessary.</p>
+
+      <p>To build final minified files, set the <code>NODE_ENV</code> environment variable to <code>production</code> before running the <code>gulp css</code> task. On Linux or Mac OS:</p>
+
+      <pre><code>NODE_ENV=production
+gulp css</code></pre>
+
+      <p>(Alternatively, run inline using <code>NODE_ENV=production gulp css</code>)</p>
+
+      <p>Windows Powershell:</p>
+
+      <pre><code>$env:NODE_ENV="production"
+gulp css</code></pre>
+
+      <p>Windows legacy command line:</p>
+
+      <pre><code>set NODE_ENV=production
+gulp css</code></pre>
+
+
+      <h2>Modules used</h2>
+
+      <p>The following Gulp.js modules/plugins have been used:</p>
+
+      <ul class="linklist">
+        <li><a href="https://www.npmjs.com/package/gulp">gulp</a> task runner</li>
+        <li><a href="https://www.npmjs.com/package/gulp-noop">gulp-noop</a> no operation</li>
+        <li><a href="https://www.npmjs.com/package/gulp-newer">gulp-newer</a> pass newer files</li>
+        <li><a href="https://www.npmjs.com/package/gulp-imagemin">gulp-imagemin</a> minify images</li>
+        <li><a href="https://www.npmjs.com/package/gulp-sass">gulp-sass</a> Sass pre-processor (<a href="https://sass-lang.com/libsass">LibSass</a>)</li>
+        <li><a href="https://www.npmjs.com/package/gulp-dart-sass">gulp-dart-sass</a> Sass pre-processor (<a href="https://sass-lang.com/dart-sass">Dart Sass</a>)</li>
+        <li><a href="https://www.npmjs.com/package/gulp-postcss">gulp-postcss</a> CSS post-processor</li>
+        <li><a href="https://www.npmjs.com/package/gulp-sourcemaps">gulp-sourcemaps</a> inline sourcemaps</li>
+        <li><a href="https://www.npmjs.com/package/gulp-size">gulp-size</a> file size reporting</li>
+        <li><a href="https://www.npmjs.com/package/del">del</a> deletes files and folders</li>
+        <li><a href="https://www.npmjs.com/package/browser-sync">browser-sync</a> server with browser synchronization</li>
+      </ul>
+
+      <p>The following <a href="https://postcss.org/">PostCSS</a> plugins have been used:</p>
+
+      <ul class="linklist">
+        <li><a href="https://www.npmjs.com/package/postcss-assets">postcss-assets</a> image information and inlining</li>
+        <li><a href="https://www.npmjs.com/package/autoprefixer">autoprefixer</a> add vendor prefixes</li>
+        <li><a href="https://www.npmjs.com/package/usedcss">usedcss</a> remove unused CSS selectors</li>
+        <li><a href="https://www.npmjs.com/package/cssnano">cssnano</a> CSS code minification (<a href="https://cssnano.co/">cssnano</a>)</li>
+        <li><a href="https://www.npmjs.com/package/postcss-clean">postcss-clean</a> CSS code minification (<a href="https://github.com/jakubpawlowicz/clean-css">clean-css</a>)</li>
+      </ul>
+
+    </article>
+
+  </main>
+
+  <footer>
+
+    <p>Developed by <a href="https://twitter.com/craigbuckler">Craig Buckler</a></p>
+
+    <p>and featured on <a href="https://www.sitepoint.com/">SitePoint.com</a></p>
+
+    <p>Please use all code and techniques as you wish!</p>
+
+  </footer>
+
+</body>
+</html>
