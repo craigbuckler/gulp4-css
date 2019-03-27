@@ -47,7 +47,6 @@
   const imgConfig = {
     src           : dir.src + 'images/**/*',
     build         : dir.build + 'images/',
-
     minOpts: {
       optimizationLevel: 5
     }
@@ -80,6 +79,9 @@
     },
 
     postCSS: [
+      require('usedcss')({
+        html: ['index.html']
+      }),
       require('postcss-assets')({
         loadPaths: ['images/'],
         basePath: dir.build
@@ -87,13 +89,7 @@
       require('autoprefixer')({
         browsers: ['> 1%']
       }),
-      require('usedcss')({
-        html: ['index.html']
-      }),
       require('cssnano')
-      // require('postcss-clean')({
-      //   level: 2
-      // })
     ]
 
   };
@@ -106,7 +102,7 @@
       .pipe(sass(cssConfig.sassOpts).on('error', sass.logError))
       .pipe(postcss(cssConfig.postCSS))
       .pipe(sourcemaps ? sourcemaps.write() : noop())
-      .pipe(size({ showFiles:true }))
+      .pipe(size({ showFiles: true }))
       .pipe(gulp.dest(cssConfig.build))
       .pipe(browsersync ? browsersync.reload({ stream: true }) : noop());
 
@@ -114,7 +110,7 @@
   exports.css = gulp.series(images, css);
 
 
-  /**************** server task (now private) ****************/
+  /**************** server task (private) ****************/
 
   const syncConfig = {
     server: {
@@ -132,7 +128,7 @@
   }
 
 
-  /**************** watch task ****************/
+  /**************** watch task (private) ****************/
 
   function watch(done) {
 
